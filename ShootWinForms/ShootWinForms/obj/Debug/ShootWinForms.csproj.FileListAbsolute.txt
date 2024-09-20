@@ -1,0 +1,11 @@
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\obj\Debug\ShootWinForms.csproj.AssemblyReference.cache
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\obj\Debug\ShootWinForms.csproj.SuggestedBindingRedirects.cache
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\obj\Debug\ShootWinForms.Form1.resources
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\obj\Debug\ShootWinForms.Properties.Resources.resources
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\obj\Debug\ShootWinForms.csproj.GenerateResource.cache
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\obj\Debug\ShootWinForms.csproj.CoreCompileInputs.cache
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\bin\Debug\ShootWinForms.exe.config
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\bin\Debug\ShootWinForms.exe
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\bin\Debug\ShootWinForms.pdb
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\obj\Debug\ShootWinForms.exe
+D:\PROJETS\Year2\P_ShootMeUp\ShootMeUp\ShootWinForms\ShootWinForms\obj\Debug\ShootWinForms.pdb
