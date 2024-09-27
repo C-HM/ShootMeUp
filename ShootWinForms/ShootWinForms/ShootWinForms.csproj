@@ -92,5 +92,20 @@
   <ItemGroup>
     <None Include="Resources\lazer.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StarsImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PixelLazer - reverse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PixelLazer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\starback.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

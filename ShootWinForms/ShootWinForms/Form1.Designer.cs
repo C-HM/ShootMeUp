@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.txtScore = new System.Windows.Forms.Label();
-            this.player = new System.Windows.Forms.PictureBox();
             this.controlText = new System.Windows.Forms.Label();
+            this.player = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,11 +47,24 @@
             this.txtScore.AutoSize = true;
             this.txtScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScore.ForeColor = System.Drawing.Color.White;
-            this.txtScore.Location = new System.Drawing.Point(719, 9);
+            this.txtScore.Location = new System.Drawing.Point(679, 9);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(88, 24);
             this.txtScore.TabIndex = 1;
             this.txtScore.Text = "Score: 0";
+            // 
+            // controlText
+            // 
+            this.controlText.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.controlText.AutoSize = true;
+            this.controlText.BackColor = System.Drawing.Color.Black;
+            this.controlText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.controlText.ForeColor = System.Drawing.Color.White;
+            this.controlText.Location = new System.Drawing.Point(100, 300);
+            this.controlText.Name = "controlText";
+            this.controlText.Size = new System.Drawing.Size(0, 24);
+            this.controlText.TabIndex = 2;
+            this.controlText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // player
             // 
@@ -63,28 +76,18 @@
             this.player.TabIndex = 0;
             this.player.TabStop = false;
             // 
-            // controlText
-            // 
-            this.controlText.BackColor = System.Drawing.Color.Black;
-            this.controlText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.controlText.ForeColor = System.Drawing.Color.White;
-            this.controlText.Location = new System.Drawing.Point(410, 280);
-            this.controlText.Name = "controlText";
-            this.controlText.Size = new System.Drawing.Size(0, 24);
-            this.controlText.TabIndex = 2;
-            this.controlText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(819, 561);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(824, 561);
             this.Controls.Add(this.controlText);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.player);
             this.Name = "Form1";
             this.Text = "Space Invaders";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();

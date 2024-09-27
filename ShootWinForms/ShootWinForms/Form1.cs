@@ -18,6 +18,7 @@ namespace ShootWinForms
         int enemySpeed = 5;
         int score = 0;
         int enemyBulletTimer = 300;
+        int playerHealth = 3;
 
         PictureBox[] sadInvadersArray;
 
@@ -109,14 +110,19 @@ namespace ShootWinForms
 
                     if (x.Bounds.IntersectsWith(player.Bounds))
                     {
-                        this.Controls.Remove(x);
-                        // gameOver("You've been killed by the sad bullet. Now you are sad forever!");
+                        playerHealth -=1 ;
+                        
+                        if(playerHealth == 0)
+                        {
+                            this.Controls.Remove(x);
+                            gameOver("");
+                        }
                     }
 
                 }
             }
 
-            if (score > 8)
+            if (score > 3)
             {
                 enemySpeed = 12;
             }
@@ -173,8 +179,8 @@ namespace ShootWinForms
             for (int i = 0; i < sadInvadersArray.Length; i++)
             {
                 sadInvadersArray[i] = new PictureBox();
-                sadInvadersArray[i].Size = new Size(60, 50);
-                sadInvadersArray[i].Image = Properties.Resources.blue;
+                sadInvadersArray[i].Size = new Size(60, 60);
+                sadInvadersArray[i].Image = Properties.Resources.blue_removebg_preview;
                 sadInvadersArray[i].Top = 5;
                 sadInvadersArray[i].Tag = "sadInvaders";
                 sadInvadersArray[i].Left = left;
@@ -189,6 +195,8 @@ namespace ShootWinForms
 
         private void gameSetup()
         {
+            playerHealth = 3;
+
             txtScore.Text = "Score: 0";
             score = 0;
             isGameOver = false;
@@ -205,7 +213,8 @@ namespace ShootWinForms
         {
             isGameOver = true;
             gameTimer.Stop();
-            txtScore.Text = "Score: " + score + " " + message;
+            txtScore.Text = "Score: " + score;
+            controlText.Text = "You've been killed by the sad bullet. Now you are sad forever!";
         }
 
         private void removeAll()
@@ -230,14 +239,20 @@ namespace ShootWinForms
 
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void makeBullet(string bulletTag)
         {
             PictureBox bullet = new PictureBox();
-            bullet.Image = Properties.Resources.lazer;
-            bullet.Size = new Size(100, 20);
+            bullet.Image = Properties.Resources.PixelLazer;
+            bullet.Size = new Size(25, 50);
             bullet.Tag = bulletTag;
             bullet.Left = player.Left + (player.Width / 2) - (bullet.Width / 2);
-            bullet.SizeMode = PictureBoxSizeMode.Zoom;
+            bullet.SizeMode = PictureBoxSizeMode.StretchImage;
+
 
             if ((string)bullet.Tag == "bullet")
             {
@@ -245,11 +260,12 @@ namespace ShootWinForms
             }
             else if ((string)bullet.Tag == "ennemyBullet")
             {
-                bullet.Top = -100;
+                bullet.Image = Properties.Resources.PixelLazer___reverse;
+                bullet.Top = 20;
             }
 
             this.Controls.Add(bullet);
-            bullet.BringToFront();
+            //bullet.BringToFront();
 
         }
 
