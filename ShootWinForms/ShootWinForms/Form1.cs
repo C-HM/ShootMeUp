@@ -12,262 +12,106 @@ namespace ShootWinForms
 {
     public partial class Form1 : Form
     {
-
-        bool goLeft, goRight;
-        int playerSpeed = 12;
-        int enemySpeed = 5;
-        int score = 0;
-        int enemyBulletTimer = 300;
-        int playerHealth = 3;
-
-        PictureBox[] sadInvadersArray;
-
-        bool shooting;
-        bool isGameOver;
+        private Ship playerShip;
+        private InvadersManager invadersManager;
+        private List<Bullet> bullets = new List<Bullet>();
+        private bool goLeft;
+        private bool goRight;
+        private int score;
 
         public Form1()
         {
             InitializeComponent();
             gameSetup();
-        }
 
-        private void mainGameTimerEvent(object sender, EventArgs e)
-        {
-            txtScore.Text = "Score: " + score;
-
-            if (goLeft)
-            {
-                player.Left -= playerSpeed;
-            }
-
-            if (goRight)
-            {
-                player.Left += playerSpeed;
-            }
-
-            enemyBulletTimer -= 10;
-
-            if (enemyBulletTimer < 1)
-            {
-                enemyBulletTimer = 300;
-                makeBullet("ennemyBullet");
-            }
-
-            foreach (Control x in this.Controls)
-            {
-
-                if (x is PictureBox && (string)x.Tag == "sadInvaders")
-                {
-                    x.Left += enemySpeed;
-
-                    if (x.Left > 730)
-                    {
-                        x.Top += 65;
-                        x.Left = -80;
-                    }
-
-
-                    if (x.Bounds.IntersectsWith(player.Bounds))
-                    {
-                        gameOver(controlText.Text = "You've been killed in combat! Quick bring the next ship!");
-                    }
-
-                    foreach (Control y in this.Controls)
-                    {
-                        if (y is PictureBox && (string)y.Tag == "bullet")
-                        {
-                            if (y.Bounds.IntersectsWith(x.Bounds))
-                            {
-                                this.Controls.Remove(x);
-                                this.Controls.Remove(y);
-                                score += 1;
-                                shooting = false;
-                            }
-                        }
-                    }
-                }
-
-                if (x is PictureBox && (string)x.Tag == "bullet")
-                {
-                    x.Top -= 20;
-
-                    if (x.Top < 15)
-                    {
-                        this.Controls.Remove(x);
-                        shooting = false;
-                    }
-                }
-
-                if (x is PictureBox && (string)x.Tag == "ennemyBullet")
-                {
-
-                    x.Top += 20;
-
-                    if (x.Top > 620)
-                    {
-                        this.Controls.Remove(x);
-                    }
-
-                    if (x.Bounds.IntersectsWith(player.Bounds))
-                    {
-                        playerHealth -=1 ;
-                        
-                        if(playerHealth == 0)
-                        {
-                            this.Controls.Remove(x);
-                            gameOver("");
-                        }
-                    }
-
-                }
-            }
-
-            if (score > 3)
-            {
-                enemySpeed = 12;
-            }
-
-            if (score == sadInvadersArray.Length)
-            {
-                gameOver("Woohoo Happiness Found, Keep it safe!");
-            }
-        }
-
-        private void keyisdown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Left)
-            {
-                goLeft = true;
-            }
-            if (e.KeyCode == Keys.Right)
-            {
-                goRight = true;
-            }
-        }
-
-        private void keyisup(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Left)
-            {
-                goLeft = false;
-            }
-            if (e.KeyCode == Keys.Right)
-            {
-                goRight = false;
-            }
-            if (e.KeyCode == Keys.Space && shooting == false)
-            {
-                shooting = true;
-                makeBullet("bullet");
-            }
-            if (e.KeyCode == Keys.Enter && isGameOver == true)
-            {
-                removeAll();
-                gameSetup();
-            }
-        }
-
-
-        private void makeInvaders()
-        {
-
-            sadInvadersArray = new PictureBox[50];
-
-
-            int left = 0;
-
-            for (int i = 0; i < sadInvadersArray.Length; i++)
-            {
-                sadInvadersArray[i] = new PictureBox();
-                sadInvadersArray[i].Size = new Size(60, 60);
-                sadInvadersArray[i].Image = Properties.Resources.blue_removebg_preview;
-                sadInvadersArray[i].Top = 5;
-                sadInvadersArray[i].Tag = "sadInvaders";
-                sadInvadersArray[i].Left = left;
-                sadInvadersArray[i].SizeMode = PictureBoxSizeMode.StretchImage;
-                this.Controls.Add(sadInvadersArray[i]);
-                left = left - 80;
-
-            }
-
-
+            this.KeyDown += new KeyEventHandler(this.keyisdown);
+            this.KeyUp += new KeyEventHandler(this.keyisup);
         }
 
         private void gameSetup()
         {
-            playerHealth = 3;
+            playerShip = new Ship(10);
+            playerShip.AddToForm(this);
 
-            txtScore.Text = "Score: 0";
-            score = 0;
-            isGameOver = false;
+            invadersManager = new InvadersManager();
+            invadersManager.InitializeInvaders(this);
 
-            enemyBulletTimer = 300;
-            enemySpeed = 5;
-            shooting = false;
-
-            makeInvaders();
+            //GameTimer
+            gameTimer.Tick += new EventHandler(mainGameTimerEvent);
             gameTimer.Start();
         }
-
-        private void gameOver(string message)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            isGameOver = true;
-            gameTimer.Stop();
-            txtScore.Text = "Score: " + score;
-            controlText.Text = "You've been killed by the sad bullet. Now you are sad forever!";
         }
 
-        private void removeAll()
+        private void mainGameTimerEvent(object sender, EventArgs e)
         {
+            if (goLeft) playerShip.MoveLeft();
+            if (goRight) playerShip.MoveRight();
 
-            foreach (PictureBox i in sadInvadersArray)
+            // Mouvement des Invaders et Bullets
+            invadersManager.MoveInvaders();
+            MoveBullets();
+            CheckBulletCollisions();
+        }
+        private void MoveBullets()
+        {
+            for (int i = bullets.Count - 1; i >= 0; i--)
             {
-                this.Controls.Remove(i);
-            }
+                bullets[i].Move();
 
-
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox)
+                if (bullets[i].IsOffScreen())
                 {
-                    if ((string)x.Tag == "bullet" || (string)x.Tag == "ennemyBullet")
+                    bullets[i].RemoveFromForm(this);
+                    bullets.RemoveAt(i);
+                }
+            }
+        }
+        private void CheckBulletCollisions()
+        {
+            for (int i = bullets.Count - 1; i >= 0; i--)
+            {
+                var bullet = bullets[i];
+                for (int j = invadersManager.InvadersList.Count - 1; j >= 0; j--)
+                {
+                    var invader = invadersManager.InvadersList[j];
+                    if (bullet.BulletPictureBox.Bounds.IntersectsWith(invader.InvaderPictureBox.Bounds))
                     {
-                        this.Controls.Remove(x);
+                        bullet.RemoveFromForm(this);
+                        bullets.RemoveAt(i);
+
+                        invader.InvaderPictureBox.Dispose();
+                        invadersManager.InvadersList.RemoveAt(j);
+
+                        //Update Score
+                        score++;
+                        txtScore.Text = "Score: " + score;
+
+                        break;
                     }
                 }
             }
-
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void keyisdown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Left) goLeft = true;
+            if (e.KeyCode == Keys.Right) goRight = true;
+            if (e.KeyCode == Keys.Space)
+            {
+                Bullet newBullet = new Bullet(
+                    new Point(playerShip.ShipPictureBox.Left + (playerShip.ShipPictureBox.Width / 2) - 5, playerShip.ShipPictureBox.Top - 20),
+                    speed: 20,
+                    image: Properties.Resources.PixelLazer
+                );
 
+                newBullet.AddToForm(this);
+                bullets.Add(newBullet);
+            }
         }
-
-        private void makeBullet(string bulletTag)
+        private void keyisup(object sender, KeyEventArgs e)
         {
-            PictureBox bullet = new PictureBox();
-            bullet.Image = Properties.Resources.PixelLazer;
-            bullet.Size = new Size(25, 50);
-            bullet.Tag = bulletTag;
-            bullet.Left = player.Left + (player.Width / 2) - (bullet.Width / 2);
-            bullet.SizeMode = PictureBoxSizeMode.StretchImage;
-
-
-            if ((string)bullet.Tag == "bullet")
-            {
-                bullet.Top = player.Top - 20;
-            }
-            else if ((string)bullet.Tag == "ennemyBullet")
-            {
-                bullet.Image = Properties.Resources.PixelLazer___reverse;
-                bullet.Top = 20;
-            }
-
-            this.Controls.Add(bullet);
-            //bullet.BringToFront();
-
+            if (e.KeyCode == Keys.Left) goLeft = false;
+            if (e.KeyCode == Keys.Right) goRight = false;
         }
-
     }
 }

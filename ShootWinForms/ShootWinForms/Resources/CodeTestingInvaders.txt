@@ -1,0 +1,30 @@
+internal class Invaders
+    {
+        private Size size1 { get; set; }
+        private Image Image { get; set; } 
+        private bool CanShoot { get; set; }
+
+        public Invaders(Size size, Image image, bool canshoot)
+        {
+            size1 = size;
+            Image = image;
+            CanShoot = canshoot;
+        }
+    }
+
+    internal class Blue : Invaders
+    {
+        public Blue(Size size, Image image, bool canshoot) : base(size, image, canshoot)
+        {
+        }
+    }
+    internal class Red : Invaders
+    {
+        public Red(Size size, Image image, bool canshoot) : base(size, image, canshoot)
+        {
+        }
+    }
+
+
+        Invaders asdsad = new Invaders(new Size(60,60) , Properties.Resources.blue_removebg_preview, true);
+        Invaders Red = new Invaders(new Size(60, 60), Properties.Resources.blue_removebg_preview, true);
