@@ -12,18 +12,18 @@ namespace ShootWinForms
 {
     internal class InvadersManager
     {
-        public List<Invaders> InvadersList { get; private set; }
+        public List<Invader> InvadersList { get; private set; }
 
         public InvadersManager()
         {
-            InvadersList = new List<Invaders>();
+            InvadersList = new List<Invader>();
         }
 
         public void InitializeInvaders(Form form)
         {
             for (int i = 0; i < 10; i++)
             {
-                Invaders invader;
+                Invader invader;
                 if (i % 2 == 0)
                 {
                     invader = new Blue(new Size(60, 60));

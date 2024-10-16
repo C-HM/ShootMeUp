@@ -58,10 +58,6 @@ namespace ShootWinForms
             );
 
             bullet.AddToForm(form);
-
-            
         }
-
-
     }
 }

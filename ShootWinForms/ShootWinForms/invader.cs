@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace ShootWinForms
 {
-    internal class Invaders
+    internal class Invader
     {
         public PictureBox InvaderPictureBox { get; private set; }
         protected bool CanShoot { get; private set; }
 
-        public Invaders(Size size, Image image, bool canShoot)
+        public Invader(Size size, Image image, bool canShoot)
         {
             CanShoot = canShoot;
             InvaderPictureBox = new PictureBox
@@ -48,7 +48,7 @@ namespace ShootWinForms
             form.Controls.Add(InvaderPictureBox);
         }
     }
-    internal class Blue : Invaders
+    internal class Blue : Invader
     {
         public Blue(Size size) : base(size, Properties.Resources.blue_removebg_preview, true)
         {
@@ -56,7 +56,7 @@ namespace ShootWinForms
         }
     }
 
-    internal class Red : Invaders
+    internal class Red : Invader
     {
         public Red(Size size) : base(size, Properties.Resources.blue_removebg_preview, false)
         {

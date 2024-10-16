@@ -26,6 +26,7 @@ namespace ShootWinForms
 
             this.KeyDown += new KeyEventHandler(this.keyisdown);
             this.KeyUp += new KeyEventHandler(this.keyisup);
+            this.FormClosing += Form1_FormClosing;
         }
 
         private void gameSetup()
@@ -94,8 +95,14 @@ namespace ShootWinForms
         }
         private void keyisdown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left) goLeft = true;
-            if (e.KeyCode == Keys.Right) goRight = true;
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = true;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = true;
+            }
             if (e.KeyCode == Keys.Space)
             {
                 Bullet newBullet = new Bullet(
@@ -112,6 +119,10 @@ namespace ShootWinForms
         {
             if (e.KeyCode == Keys.Left) goLeft = false;
             if (e.KeyCode == Keys.Right) goRight = false;
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // Closes the entire application
         }
     }
 }
