@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShootWinForms", "ShootWinForms\ShootWinForms.csproj", "{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{E690CDD4-F376-4727-99CE-6C840E7B894D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E690CDD4-F376-4727-99CE-6C840E7B894D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E690CDD4-F376-4727-99CE-6C840E7B894D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E690CDD4-F376-4727-99CE-6C840E7B894D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E690CDD4-F376-4727-99CE-6C840E7B894D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

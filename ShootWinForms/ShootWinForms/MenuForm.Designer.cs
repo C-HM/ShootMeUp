@@ -1,4 +1,7 @@
-﻿namespace ShootWinForms
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace ShootWinForms
 {
     partial class MenuForm
     {
@@ -31,6 +34,7 @@
             this.gameStart = new System.Windows.Forms.Button();
             this.hightscoreButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameStart
@@ -69,12 +73,27 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // titleLabel
+            // 
+            this.titleLabel.BackColor = System.Drawing.Color.Black;
+            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.titleLabel.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.Cyan;
+            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(800, 60);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "Space Invaders";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.hightscoreButton);
             this.Controls.Add(this.gameStart);
@@ -89,5 +108,6 @@
         private System.Windows.Forms.Button gameStart;
         private System.Windows.Forms.Button hightscoreButton;
         private System.Windows.Forms.Button exitButton;
-    }
+        private System.Windows.Forms.Label titleLabel;
+        }
 }

@@ -32,6 +32,7 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.txtScore = new System.Windows.Forms.Label();
             this.controlText = new System.Windows.Forms.Label();
+            this.livesLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -63,12 +64,25 @@
             this.controlText.TabIndex = 2;
             this.controlText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // livesLabel
+            // 
+            this.livesLabel.AutoSize = true;
+            this.livesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.livesLabel.ForeColor = System.Drawing.Color.White;
+            this.livesLabel.Location = new System.Drawing.Point(12, 9);
+            this.livesLabel.Name = "livesLabel";
+            this.livesLabel.Size = new System.Drawing.Size(88, 24);
+            this.livesLabel.TabIndex = 2;
+            this.livesLabel.Text = "Lives: ";
+            this.Controls.Add(this.livesLabel);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(824, 561);
+            this.Controls.Add(this.livesLabel);
             this.Controls.Add(this.controlText);
             this.Controls.Add(this.txtScore);
             this.Name = "Form1";
@@ -86,6 +100,7 @@
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label txtScore;
         private System.Windows.Forms.Label controlText;
+        private System.Windows.Forms.Label livesLabel;
     }
 }
 
