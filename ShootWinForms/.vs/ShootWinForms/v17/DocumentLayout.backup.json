@@ -7,28 +7,8 @@
       "RelativeMoniker": "D:0:0:{E690CDD4-F376-4727-99CE-6C840E7B894D}|UnitTestProject1\\UnitTestProject1.csproj|solutionrelative:unittestproject1\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|e:\\projets\\year2\\p_shootmeup\\shootmeup\\shootwinforms\\shootwinforms\\entities\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|solutionrelative:shootwinforms\\entities\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E690CDD4-F376-4727-99CE-6C840E7B894D}|UnitTestProject1\\UnitTestProject1.csproj|e:\\projets\\year2\\p_shootmeup\\shootmeup\\shootwinforms\\unittestproject1\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E690CDD4-F376-4727-99CE-6C840E7B894D}|UnitTestProject1\\UnitTestProject1.csproj|solutionrelative:unittestproject1\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\shootwinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|solutionrelative:shootwinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|e:\\projets\\year2\\p_shootmeup\\shootmeup\\shootwinforms\\shootwinforms\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|solutionrelative:shootwinforms\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|e:\\projets\\year2\\p_shootmeup\\shootmeup\\shootwinforms\\shootwinforms\\entities\\ship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|solutionrelative:shootwinforms\\entities\\ship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|e:\\projets\\year2\\p_shootmeup\\shootmeup\\shootwinforms\\shootwinforms\\entities\\obstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|solutionrelative:shootwinforms\\entities\\obstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\shootwinforms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,25 +26,24 @@
       "DocumentGroups": [
         {
           "DockedHeight": 243,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Form1.cs",
               "RelativeDocumentMoniker": "ShootWinForms\\Form1.cs",
               "ToolTip": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Form1.cs",
               "RelativeToolTip": "ShootWinForms\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T04:17:50.538Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "MenuForm.cs",
               "DocumentMoniker": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\MenuForm.cs",
               "RelativeDocumentMoniker": "ShootWinForms\\MenuForm.cs",
@@ -77,72 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Bullet.cs",
-              "DocumentMoniker": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Entities\\Bullet.cs",
-              "RelativeDocumentMoniker": "ShootWinForms\\Entities\\Bullet.cs",
-              "ToolTip": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Entities\\Bullet.cs",
-              "RelativeToolTip": "ShootWinForms\\Entities\\Bullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T19:43:50.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\UnitTestProject1\\Properties\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "UnitTestProject1\\Properties\\AssemblyInfo.cs",
-              "ToolTip": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\UnitTestProject1\\Properties\\AssemblyInfo.cs",
-              "RelativeToolTip": "UnitTestProject1\\Properties\\AssemblyInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T19:40:21.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Properties\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "ShootWinForms\\Properties\\AssemblyInfo.cs",
-              "ToolTip": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Properties\\AssemblyInfo.cs",
-              "RelativeToolTip": "ShootWinForms\\Properties\\AssemblyInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T19:38:35.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Obstacle.cs",
-              "DocumentMoniker": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Entities\\Obstacle.cs",
-              "RelativeDocumentMoniker": "ShootWinForms\\Entities\\Obstacle.cs",
-              "ToolTip": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Entities\\Obstacle.cs",
-              "RelativeToolTip": "ShootWinForms\\Entities\\Obstacle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T19:36:55.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Ship.cs",
-              "DocumentMoniker": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Entities\\Ship.cs",
-              "RelativeDocumentMoniker": "ShootWinForms\\Entities\\Ship.cs",
-              "ToolTip": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\ShootWinForms\\Entities\\Ship.cs",
-              "RelativeToolTip": "ShootWinForms\\Entities\\Ship.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T19:35:21.255Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "packages.config",
               "DocumentMoniker": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\UnitTestProject1\\packages.config",
               "RelativeDocumentMoniker": "UnitTestProject1\\packages.config",
@@ -160,7 +74,7 @@
               "RelativeDocumentMoniker": "UnitTestProject1\\UnitTest1.cs",
               "ToolTip": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\UnitTestProject1\\UnitTest1.cs",
               "RelativeToolTip": "UnitTestProject1\\UnitTest1.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowAwAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwDcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T19:18:19.935Z",
               "EditorCaption": ""

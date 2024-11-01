@@ -11,11 +11,11 @@
       "RelativeMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|solutionrelative:shootwinforms\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|e:\\projets\\year2\\p_shootmeup\\shootmeup\\shootwinforms\\shootwinforms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\shootwinforms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B45FFA7A-7FF1-4306-ADFA-2146619AA4FA}|ShootWinForms\\ShootWinForms.csproj|solutionrelative:shootwinforms\\menuform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E690CDD4-F376-4727-99CE-6C840E7B894D}|UnitTestProject1\\UnitTestProject1.csproj|e:\\projets\\year2\\p_shootmeup\\shootmeup\\shootwinforms\\unittestproject1\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{E690CDD4-F376-4727-99CE-6C840E7B894D}|UnitTestProject1\\UnitTestProject1.csproj|E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\unittestproject1\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{E690CDD4-F376-4727-99CE-6C840E7B894D}|UnitTestProject1\\UnitTestProject1.csproj|solutionrelative:unittestproject1\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
@@ -39,8 +39,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T04:17:50.538Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -53,8 +52,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T04:28:14.951Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -66,8 +64,7 @@
               "RelativeToolTip": "UnitTestProject1\\packages.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-11-01T19:24:11.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-01T19:24:11.81Z"
             },
             {
               "$type": "Document",
@@ -77,7 +74,7 @@
               "RelativeDocumentMoniker": "UnitTestProject1\\UnitTest1.cs",
               "ToolTip": "E:\\PROJETS\\Year2\\P_ShootMeUp\\ShootMeUp\\ShootWinForms\\UnitTestProject1\\UnitTest1.cs",
               "RelativeToolTip": "UnitTestProject1\\UnitTest1.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwC4AAABAAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwDcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T19:18:19.935Z",
               "EditorCaption": ""
