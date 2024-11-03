@@ -100,6 +100,12 @@ namespace ShootWinForms
         /// <returns>A new Bullet object if cooldown has elapsed, null otherwise</returns>
         public Bullet Shoot()
         {
+            // Check if the ship or form is being disposed
+            if (ShipPictureBox == null || ShipPictureBox.IsDisposed || ShipPictureBox.Parent == null)
+            {
+                return null;
+            }
+
             // Check if enough time has passed since the last shot
             if (DateTime.Now - lastShotTime >= TimeSpan.FromMilliseconds(shootCooldown))
             {
@@ -108,10 +114,11 @@ namespace ShootWinForms
                     new Point(ShipPictureBox.Left + (ShipPictureBox.Width / 2) - 5,
                              ShipPictureBox.Top - 20),
                     10,
-                    Properties.Resources.PixelLazer // Bullet image
+                    Properties.Resources.PixelLazer,
+                    ShipPictureBox.Parent.ClientSize.Height
                 );
             }
-            return null; // Return null if we can't shoot yet
+            return null;
         }
     }
 }

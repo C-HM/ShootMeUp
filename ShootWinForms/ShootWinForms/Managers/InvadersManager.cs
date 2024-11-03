@@ -55,11 +55,11 @@ namespace ShootWinForms
                 Invader invader;
                 if (i % 2 == 0)
                 {
-                    invader = new Blue(new Size(40, 40));
+                    invader = new Blue(new Size(40, 40), form.ClientSize.Height);
                 }
                 else
                 {
-                    invader = new Red(new Size(40, 40));
+                    invader = new Red(new Size(40, 40), form.ClientSize.Height);
                 }
 
                 // Set the position of the InvaderPictureBox directly
@@ -131,7 +131,7 @@ namespace ShootWinForms
         /// Attempts to make an enemy invader shoot
         /// </summary>
         /// <returns>A bullet if an invader shoots, null otherwise</returns>
-        public Bullet TryEnemyShoot()
+        public Bullet TryEnemyShoot(int formHeight)
         {
             // Get only red invaders (they can shoot)
             var shootingInvaders = InvadersList.Where(i => i is Red).ToList();

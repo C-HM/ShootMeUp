@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ShootWinForms.Bullet" Collapsed="true">
+    <Position X="5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAJBAAQAAgAQAAAABAAAAAAAAAAAAAAACAAE=</HashCode>
+      <FileName>Entities\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.Invader" Collapsed="true">
+    <Position X="1.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABJAABAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Entities\Invader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.Blue" Collapsed="true">
+    <Position X="2.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Invader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.Red" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Invader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.Obstacle" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAQCAAAAAAAAAAQAAAAAAAAAAIAAAAAAAAAgAgAAAA=</HashCode>
+      <FileName>Entities\Obstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.Ship" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAABAAAACABAAAAAAAAAAAAAAAAAAIRCAAAAEAAIA=</HashCode>
+      <FileName>Entities\Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.InvadersManager" Collapsed="true">
+    <Position X="3.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAACAAAAAUIAAAAAAAAAAAAAAAAAAAQAAAAABQA=</HashCode>
+      <FileName>Managers\InvadersManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.Program" Collapsed="true">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.EnemyBullet" Collapsed="true">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\EnemyBullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.Form1" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CIAAgQAIAqABAMwABBCIAgwCAQBAgIQgAgwIABIAgAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShootWinForms.MenuForm" Collapsed="true">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAIgiCAAACAACAAABAAAAAAAAAAAQ=</HashCode>
+      <FileName>MenuForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ShootWinForms.Properties.Resources" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgARAAAAAAAAAAAAAAAFECAAAYAAAAAIABAABAAAAoA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

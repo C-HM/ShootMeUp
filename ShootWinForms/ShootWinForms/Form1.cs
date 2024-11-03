@@ -11,10 +11,13 @@ using System.Collections.Generic;   // For List<T> collections
 using System.ComponentModel;        // For component model features
 using System.Data;                  // For data handling
 using System.Drawing;               // For graphics and drawing
+using System.IO;
 using System.Linq;                  // For LINQ queries
 using System.Text;                  // For text handling
 using System.Threading.Tasks;       // For asynchronous operations
 using System.Windows.Forms;         // For Windows Forms UI elements
+using System.IO;
+using System.Linq;
 
 namespace ShootWinForms
 {
@@ -51,20 +54,20 @@ namespace ShootWinForms
 
         // ====== MOVEMENT AND CONTROL FLAGS ======
 
-        // Flag indicating if the player is moving left
-        // Set by keyboard input handling
+        // Flag indicating if the player is moving left 
+        // Set by keyboard input handling 
         private bool goLeft;
 
-        // Flag indicating if the player is moving right
-        // Set by keyboard input handling
+        // Flag indicating if the player is moving right 
+        // Set by keyboard input handling 
         private bool goRight;
 
-        // Current player score in the game
-        // Incremented when destroying enemies
+        // Current player score in the game 
+        // Incremented when destroying enemies 
         private int score;
 
-        // Flag indicating if the player is currently shooting
-        // Controls bullet firing mechanics
+        // Flag indicating if the player is currently shooting 
+        // Controls bullet firing mechanics 
         private bool shooting;
 
         /// <summary>
@@ -134,7 +137,6 @@ namespace ShootWinForms
         /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Reserved for future implementation
         }
 
         /// <summary>
@@ -173,7 +175,7 @@ namespace ShootWinForms
             // ====== ENEMY SHOOTING LOGIC ======
 
             // Attempt to generate an enemy bullet based on game conditions
-            Bullet enemyBullet = invadersManager.TryEnemyShoot();
+            Bullet enemyBullet = invadersManager.TryEnemyShoot(this.ClientSize.Height);
 
             // If an enemy bullet was successfully created
             if (enemyBullet != null)
@@ -202,7 +204,7 @@ namespace ShootWinForms
             // Check for collisions between enemy bullets and player
             CheckEnemyBulletCollisions();
 
-            // Update enemy positions and behavior
+            // Create the enemy manager instance
             invadersManager.MoveInvaders(this);
 
             // ====== PLAYER SHOOTING LOGIC ======
@@ -226,7 +228,8 @@ namespace ShootWinForms
                             playerShip.ShipPictureBox.Top - 20
                         ),
                         speed: 20,  // Set bullet velocity
-                        image: Properties.Resources.PixelLazer  // Set bullet appearance
+                        image: Properties.Resources.PixelLazer,  // Set bullet appearance
+                        formHeight: this.ClientSize.Height
                     );
 
                     // Ensure the bullet is visible on screen
@@ -238,6 +241,17 @@ namespace ShootWinForms
                     // Add bullet to the game form and active bullets collection
                     this.Controls.Add(newBullet.BulletPictureBox);
                     bullets.Add(newBullet);
+                }
+
+                // Check for win condition
+                if (CheckWinCondition())
+                {
+                    GameOver(true);
+                }
+                // Check for lose condition
+                else if (CheckLoseCondition())
+                {
+                    GameOver(false);
                 }
             }
         }
@@ -278,6 +292,13 @@ namespace ShootWinForms
         /// </summary>
         private void CheckBulletCollisions()
         {
+            // To check if the player is still alive
+            if (Ship.playerLives == 0)
+            {
+                GameOver(false);
+                return; // Exit the method to prevent further processing
+            }
+
             // Iterate through all active bullets
             for (int i = bullets.Count - 1; i >= 0; i--)
             {
@@ -325,6 +346,7 @@ namespace ShootWinForms
                         break;
                     }
                 }
+                
             }
         }
 
@@ -465,7 +487,7 @@ namespace ShootWinForms
                     // Check for game over
                     if (Ship.playerLives == 0)
                     {
-                        GameOver();
+                        GameOver(false);
                     }
                 }
             }
@@ -510,16 +532,167 @@ namespace ShootWinForms
         /// <summary>
         /// Handles game over logic and displays final score
         /// </summary>
-        private void GameOver()
+        private void GameOver(bool playerWon)
+        {
+            gameTimer.Stop();
+
+            string message = playerWon ? "You Win!" : "Game Over!";
+            MessageBox.Show($"{message} Score: {score}");
+
+            SaveScore(score);  // Save the score
+
+            // Ask if the player wants to restart
+            if (MessageBox.Show("Do you want to play again?", "Restart", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                RestartGame();
+            }
+            else
+            {
+                // Stop all game processes
+                gameTimer.Stop();
+                shooting = false;  // Ensure shooting is disabled
+                goLeft = false;   // Disable movement
+                goRight = false;  // Disable movement
+
+                // Clear all game objects before closing
+                ClearGameObjects();
+
+                // Close the current form
+                this.Close();
+
+                // If this is the main form, exit the application
+                if (Application.OpenForms.Count == 0)
+                {
+                    Application.Exit();
+                }
+                else
+                {
+                    // If there are other forms open, show the menu form
+                    new MenuForm().Show();
+                }
+            }
+        }
+        /// <summary>
+        /// Checks if the player has won the game
+        /// </summary>
+        /// <returns>True if all invaders are destroyed, false otherwise</returns>
+        private bool CheckWinCondition()
+        {
+            // Win if all invaders are destroyed
+            return invadersManager.InvadersList.Count == 0;
+        }
+
+        /// <summary>
+        /// Checks if the player has lost the game
+        /// </summary>
+        /// <returns>True if player lives are zero or invaders reach the bottom, false otherwise</returns>
+        private bool CheckLoseCondition()
+        {
+            // Lose if player lives are zero or invaders reach the bottom
+            return Ship.playerLives <= 0 || invadersManager.InvadersList.Any(i => i.InvaderPictureBox.Bottom >= playerShip.ShipPictureBox.Top);
+        }
+
+        /// <summary>
+        /// Restarts the game by resetting all game elements to their initial state
+        /// </summary>
+        private void RestartGame()
         {
             // Stop the game timer
             gameTimer.Stop();
 
-            // Display final score and game over message
-            MessageBox.Show("Game Over! Score: " + score);
+            // Reset score
+            score = 0;
+            txtScore.Text = "Score: 0";
 
-            // Close the game form
-            this.Close();
+            // Reset player lives
+            Ship.playerLives = 5;
+            livesLabel.Text = "Lives: " + Ship.playerLives;
+
+            // Clear existing invaders and bullets
+            ClearGameObjects();
+
+            // Reset player position
+            ResetPlayerPosition();
+
+            // Reinitialize invaders for a new game
+            invadersManager = new InvadersManager();
+            invadersManager.InitializeInvaders(this);
+
+            // Reset movement flags
+            goLeft = false;
+            goRight = false;
+            shooting = false;
+
+            // Restart the game timer to begin the new game
+            gameTimer.Start();
+            InitializeObstacles();
+        }
+        /// <summary>
+        /// Clear the invaders from the previous game
+        /// </summary>
+        private void ClearGameObjects()
+        {
+            // Clear invaders
+            foreach (var invader in invadersManager.InvadersList)
+            {
+                if (invader.InvaderPictureBox != null && !invader.InvaderPictureBox.IsDisposed)
+                {
+                    this.Controls.Remove(invader.InvaderPictureBox);
+                    invader.InvaderPictureBox.Dispose();
+                }
+            }
+            invadersManager.InvadersList.Clear();
+
+            // Clear bullets
+            ClearBullets(bullets);
+            ClearBullets(enemyBullets);
+
+            // Clear obstacles
+            foreach (var obstacle in obstacles)
+            {
+                if (obstacle.ObstaclePictureBox != null && !obstacle.ObstaclePictureBox.IsDisposed)
+                {
+                    this.Controls.Remove(obstacle.ObstaclePictureBox);
+                    obstacle.ObstaclePictureBox.Dispose();
+                }
+            }
+            obstacles.Clear();
+        }
+        /// <summary>
+        /// Clear the bullets form previous game
+        /// </summary>
+        /// <param name="bulletList"></param>
+        private void ClearBullets(List<Bullet> bulletList)
+        {
+            foreach (var bullet in bulletList)
+            {
+                if (bullet.BulletPictureBox != null && !bullet.BulletPictureBox.IsDisposed)
+                {
+                    this.Controls.Remove(bullet.BulletPictureBox);
+                    bullet.BulletPictureBox.Dispose();
+                }
+            }
+            bulletList.Clear();
+        }
+        /// <summary>
+        /// Center the player ship horizontally at the bottom of the screen
+        /// </summary>
+        private void ResetPlayerPosition()
+        {
+            playerShip.ShipPictureBox.Left = (this.ClientSize.Width - playerShip.ShipPictureBox.Width) / 2;
+            playerShip.ShipPictureBox.Top = this.ClientSize.Height - 60;
+        }
+        /// <summary>
+        /// Method to save score
+        /// </summary>
+        /// <param name="score"></param>
+        private void SaveScore(int score)
+        {
+            string path = "highscores.txt";
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                sw.WriteLine(score);
+            }
         }
     }
 }

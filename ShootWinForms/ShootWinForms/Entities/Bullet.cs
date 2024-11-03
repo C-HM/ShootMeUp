@@ -23,6 +23,10 @@ namespace ShootWinForms
     internal class Bullet
     {
         /// <summary>
+        /// Field to store the forms height
+        /// </summary>
+        private int _formHeight;
+        /// <summary>
         /// The visual representation of the bullet
         /// </summary>
         public PictureBox BulletPictureBox { get; private set; }
@@ -48,9 +52,10 @@ namespace ShootWinForms
         /// <param name="startPosition"></param>
         /// <param name="speed"></param>
         /// <param name="image"></param>
-        public void Initialize(Point startPosition, int speed, Image image)
+        public void Initialize(Point startPosition, int speed, Image image, int formHeight)
         {
             Speed = speed;
+            _formHeight = formHeight;
             // Create a new PictureBox if it doesn't exist, or reuse the existing one
             BulletPictureBox = BulletPictureBox ?? new PictureBox
             {
@@ -82,7 +87,7 @@ namespace ShootWinForms
         /// Check if the bullet is off the screen
         /// </summary>
         /// <returns></returns>
-        public bool IsOffScreen() => BulletPictureBox.Bottom < 0 || BulletPictureBox.Top > Form.ActiveForm.ClientSize.Height;
+        public bool IsOffScreen() => BulletPictureBox.Bottom < 0 || BulletPictureBox.Top > _formHeight;
 
         /// <summary>
         /// Deactivate the bullet and remove it from the form
@@ -106,11 +111,11 @@ namespace ShootWinForms
         /// <param name="speed"></param>
         /// <param name="image"></param>
         /// <returns></returns>
-        public static Bullet GetBullet(Point startPosition, int speed, Image image)
+        public static Bullet GetBullet(Point startPosition, int speed, Image image, int formHeight)
         {
             Bullet bullet = bulletPool.Count > 0 ? bulletPool[0] : new Bullet();
             if (bulletPool.Count > 0) bulletPool.RemoveAt(0);
-            bullet.Initialize(startPosition, speed, image);
+            bullet.Initialize(startPosition, speed, image, formHeight);
             return bullet;
         }
 

@@ -22,6 +22,10 @@ namespace ShootWinForms
     internal class Invader
     {
         /// <summary>
+        /// 
+        /// </summary>
+        private int _formHeight;
+        /// <summary>
         /// The visual representation of the invader
         /// </summary>
         public PictureBox InvaderPictureBox { get; private set; }
@@ -37,9 +41,10 @@ namespace ShootWinForms
         /// <param name="size">The size of the invader</param>
         /// <param name="image">The image to display for the invader</param>
         /// <param name="canShoot">Whether this invader can shoot or not</param>
-        public Invader(Size size, Image image, bool canShoot)
+        public Invader(Size size, Image image, bool canShoot, int formHeight)
         {
             CanShoot = canShoot;
+            _formHeight = formHeight;
             InvaderPictureBox = new PictureBox
             {
                 Size = size,
@@ -75,7 +80,8 @@ namespace ShootWinForms
                 new Point(InvaderPictureBox.Left + (InvaderPictureBox.Width / 2) - 5,
                          InvaderPictureBox.Bottom + 10),
                 -10,
-                Properties.Resources.PixelLazer___reverse
+                Properties.Resources.PixelLazer___reverse,
+                _formHeight  // Use the stored form height
             );
         }
     }
@@ -89,7 +95,7 @@ namespace ShootWinForms
         /// Constructor for Blue invader
         /// </summary>
         /// <param name="size">The size of the blue invader</param>
-        public Blue(Size size) : base(size, Properties.Resources.blue_removebg_preview, false) { }
+        public Blue(Size size, int formHeight) : base(size, Properties.Resources.blue_removebg_preview, false, formHeight) { }
     }
 
     /// <summary>
@@ -101,6 +107,6 @@ namespace ShootWinForms
         /// Constructor for Red invader
         /// </summary>
         /// <param name="size">The size of the red invader</param>
-        public Red(Size size) : base(size, Properties.Resources.redinvader, true) { }
+        public Red(Size size, int formHeight) : base(size, Properties.Resources.redinvader, true, formHeight) { }
     }
 }

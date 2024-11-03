@@ -6,6 +6,9 @@
 ///              and exiting the application.
 
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ShootWinForms
@@ -48,8 +51,7 @@ namespace ShootWinForms
         /// <param name="e">Event arguments</param>
         private void hightscoreButton_Click(object sender, EventArgs e)
         {
-            // Display a message indicating that the feature is not yet implemented
-            MessageBox.Show("High scores feature coming soon!");
+            DisplayHighScores();
         }
 
         /// <summary>
@@ -62,6 +64,32 @@ namespace ShootWinForms
         {
             // Exit the application
             Application.Exit();
+        }
+
+        /// <summary>
+        /// Dispaly Highscores
+        /// </summary>
+        private void DisplayHighScores()
+        {
+            string path = "highscores.txt";
+            List<int> scores = new List<int>();
+
+            if (File.Exists(path))
+            {
+                scores = File.ReadAllLines(path)
+                             .Select(int.Parse)
+                             .OrderByDescending(s => s)
+                             .Take(5)
+                             .ToList();
+            }
+
+            string message = "Top 5 High Scores:\n\n";
+            for (int i = 0; i < scores.Count; i++)
+            {
+                message += $"{i + 1}. {scores[i]}\n";
+            }
+
+            MessageBox.Show(message, "High Scores");
         }
     }
 }

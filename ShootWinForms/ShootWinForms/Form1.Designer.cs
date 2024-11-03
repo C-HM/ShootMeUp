@@ -97,9 +97,16 @@
 
         #endregion
 
+        // Timer for controlling the game's main loop
         private System.Windows.Forms.Timer gameTimer;
+
+        // Label for displaying the current score
         private System.Windows.Forms.Label txtScore;
+
+        // Label for displaying control instructions (if needed)
         private System.Windows.Forms.Label controlText;
+
+        // Label for displaying the player's remaining lives
         private System.Windows.Forms.Label livesLabel;
     }
 }
