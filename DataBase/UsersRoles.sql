@@ -1,5 +1,5 @@
 -- Edit: Admin
-CREATE ROLE 'gameAdmin'
+CREATE ROLE 'gameAdmin';
 
 -- Gere les comptes des joueurs
 CREATE ROLE 'player';
@@ -7,33 +7,30 @@ CREATE ROLE 'player';
 -- Sauvegarde et affiche les scores
 CREATE ROLE 'gameManager';
 
-
 -- Creation des utilisateurs
-CREATE USER 'd'@'localhost' IDENTIFIED BY 'd';
-CREATE USER 'e'@'localhost' IDENTIFIED BY 'e';
-CREATE USER 't'@'localhost' IDENTIFIED BY 't';
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'Dwight'@'localhost' IDENTIFIED BY 'd';
+CREATE USER 'Edward'@'localhost' IDENTIFIED BY 'e';
+CREATE USER 'Timothe'@'localhost' IDENTIFIED BY 't';
 
 -- Donner les roles aux utilisateurs
-GRANT SELECT, UPDATE, INSERT, DELETE ON db_shootMeUp.* TO 'gameAdmin'@'localhost' WITH GRANT OPTION;
-
-GRANT 'accountManager' TO 'd'@'localhost';
-GRANT 'scoreManager' TO 'e'@'localhost';
-GRANT 'levelManager' TO 't'@'localhost';
+GRANT 'gameAdmin' TO 'admin'@'localhost';
+GRANT 'player' TO 'd'@'localhost';
+GRANT 'player' TO 't'@'localhost';
+GRANT 'gameManager' TO 'e'@'localhost';
 
 -- Peut lire, créer et supprimer des comptes utilisateurs
-GRANT SELECT, INSERT, DELETE, UPDATE ON t_user TO 'accountManager';
+GRANT SELECT, UPDATE, INSERT, DELETE ON db_shootMeUp.* TO 'gameAdmin'@'localhost' WITH GRANT OPTION;
 
--- Peut lire et ajouter des scores
-GRANT SELECT, INSERT ON t_score TO 'scoreManager';
+-- Peut lire et update les informations pour le joueur (nouvveau score par example)
+GRANT SELECT, UPDATE, INSERT ON db_shootMeUp.t_level TO 'gameManager'@'localhost';
 
--- Pour recuperer le nom du joueur
-GRANT SELECT ON t_user TO 'scoreManager';
+-- récupérer les informations Ennemis, obstacles
+GRANT SELECT ON db_shootMeUp.t_obstacle TO 'gameManager'@'localhost';
+GRANT SELECT ON db_shootMeUp.t_enemy TO 'gameManager'@'localhost';
 
--- Peut lire toutes les informations de configuration
-GRANT SELECT ON t_obstacle TO 'levelManager';
-GRANT SELECT ON t_level TO 'levelManager';
-GRANT SELECT ON t_apparaître TO 'levelManager';
-GRANT SELECT ON t_ennemi TO 'levelManager';
+-- Aucun privilege pour les joueurs
+REVOKE ALL PRIVILEGES ON db_shootmeup.* FROM 'player'@'localhost';
 
 -- Recharger les privilèges
 FLUSH PRIVILEGES;
