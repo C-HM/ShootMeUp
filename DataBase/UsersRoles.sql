@@ -1,11 +1,12 @@
+-- Edit: Admin
+CREATE ROLE 'gameAdmin'
+
 -- Gere les comptes des joueurs
-CREATE ROLE 'accountManager';
+CREATE ROLE 'player';
 
 -- Sauvegarde et affiche les scores
-CREATE ROLE 'scoreManager';
+CREATE ROLE 'gameManager';
 
--- Recupere les informations de configuration du niveau
-CREATE ROLE 'levelManager';
 
 -- Creation des utilisateurs
 CREATE USER 'd'@'localhost' IDENTIFIED BY 'd';
@@ -13,6 +14,8 @@ CREATE USER 'e'@'localhost' IDENTIFIED BY 'e';
 CREATE USER 't'@'localhost' IDENTIFIED BY 't';
 
 -- Donner les roles aux utilisateurs
+GRANT SELECT, UPDATE, INSERT, DELETE ON db_shootMeUp.* TO 'gameAdmin'@'localhost' WITH GRANT OPTION;
+
 GRANT 'accountManager' TO 'd'@'localhost';
 GRANT 'scoreManager' TO 'e'@'localhost';
 GRANT 'levelManager' TO 't'@'localhost';
